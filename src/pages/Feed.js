@@ -7,6 +7,8 @@ import like from '../assets/like.svg';
 import comment from '../assets/comment.svg';
 import send from '../assets/send.svg';
 
+import { Buffer } from 'buffer';
+
 class Feed extends Component {
   state = {
     feed: [],
@@ -26,6 +28,11 @@ class Feed extends Component {
     api.delete(`/posts/${id}`);
   }
 
+  getImage = image => {
+    const base64 = new Buffer(image).toString("base64");
+    return `data:image/jpeg;base64,${base64}`;
+  }
+
   render() {
     return (
       <section id="post-list">
@@ -38,14 +45,12 @@ class Feed extends Component {
                   <span className="place">{post.place}</span>
                 </div>
 
-                <div className="actions">
-                  <button type="button" onClick={() => this.handleDelete(post._id)}>
-                    <img src={more} alt="Mais" />
-                  </button>
-                </div>
+                <button type="button" onClick={() => this.handleDelete(post._id)}>
+                  <img src={more} alt="Mais" />
+                </button>
               </header>
 
-              <img src={`https://backend-likeinsta.herokuapp.com/files/${post.image}`} alt="" />
+              <img src={this.getImage(post.image)} alt="" />
 
               <footer>
                 <div className="actions">

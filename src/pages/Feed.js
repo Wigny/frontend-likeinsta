@@ -38,9 +38,11 @@ class Feed extends Component {
                   <span className="place">{post.place}</span>
                 </div>
 
-                <button type="button" onClick={() => this.handleDelete(post._id)}>
-                  <img src={more} alt="Mais" />
-                </button>
+                <div className="actions">
+                  <button type="button" onClick={() => this.handleDelete(post._id)}>
+                    <img src={more} alt="Mais" />
+                  </button>
+                </div>
               </header>
 
               <img src={`https://backend-likeinsta.herokuapp.com/files/${post.image}`} alt="" />

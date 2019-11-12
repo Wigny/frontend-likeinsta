@@ -22,6 +22,10 @@ class Feed extends Component {
     api.post(`/posts/${id}/like`);
   }
 
+  handleDelete = id => {
+    api.delete(`/posts/${id}`);
+  }
+
   render() {
     return (
       <section id="post-list">
@@ -34,7 +38,9 @@ class Feed extends Component {
                   <span className="place">{post.place}</span>
                 </div>
 
-                <img src={more} alt="Mais" />
+                <button type="button" onClick={() => this.handleDelete(post._id)}>
+                  <img src={more} alt="Mais" />
+                </button>
               </header>
 
               <img src={`https://backend-likeinsta.herokuapp.com/files/${post.image}`} alt="" />

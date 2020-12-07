@@ -39,7 +39,9 @@ section#post-list article header .user-info span.place {
   margin-top: 3px;
 }
 
-section#post-list article>img {
+section#post-list article > img,
+section#post-list article > video,
+section#post-list article > audio {
   width: 100%;
 }
 
@@ -57,7 +59,9 @@ section#post-list article footer .actions button {
   cursor: pointer;
 }
 
-section#post-list article footer .actions img {
+section#post-list article footer .actions img,
+section#post-list article footer .actions video,
+section#post-list article footer .actions audio {
   height: 20px;
   margin-right: 10px;
 }

@@ -44,6 +44,7 @@ class Feed extends Component {
           placeholder="Autor do post"
           onChange={this.handleChange}
           value={this.setState.author}
+          accept="audio/*|video/*|image/*"
         />
         <input
           type="text"

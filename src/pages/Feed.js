@@ -26,6 +26,22 @@ class Feed extends Component {
     api.delete(`/posts/${id}`);
   }
 
+  handleFile = ({ file, mimetype }) => {
+    switch (mimetype.split("/")[0]) {
+      case 'image':
+        return <img src={file} alt={file} />
+
+      case 'video':
+        return <video controls> <source src={file} type={mimetype} /> </video>
+
+      case 'audio':
+        return <audio controls> <source src={file} type={mimetype} /> </audio>
+
+      default:
+        return <a href="file" download>Download</a>
+    }
+  }
+
   render() {
     return (
       <section id="post-list">
@@ -43,7 +59,7 @@ class Feed extends Component {
                 </button>
               </header>
 
-              <img src={post.file} alt="" />
+              {this.handleFile(post)}
 
               <footer>
                 <div className="actions">

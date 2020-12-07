@@ -5,7 +5,7 @@ import './New.css';
 
 class Feed extends Component {
   state = {
-    image: null,
+    file: null,
     author: '',
     place: '',
     description: '',
@@ -26,8 +26,8 @@ class Feed extends Component {
     this.props.history.push('/');
   }
 
-  handleImageChange = e => {
-    this.setState({ image: e.target.files[0] });
+  handleFileChange = e => {
+    this.setState({ file: e.target.files[0] });
   }
 
   handleChange = e => {
@@ -37,7 +37,7 @@ class Feed extends Component {
   render() {
     return (
       <form id="new-post" onSubmit={this.handleSubmit}>
-        <input type="file" onChange={this.handleImageChange} />
+        <input type="file" onChange={this.handleFileChange} />
         <input
           type="text"
           name="author"

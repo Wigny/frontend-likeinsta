@@ -7,8 +7,6 @@ import like from '../assets/like.svg';
 import comment from '../assets/comment.svg';
 import send from '../assets/send.svg';
 
-import { Buffer } from 'buffer';
-
 class Feed extends Component {
   state = {
     feed: [],
@@ -28,11 +26,6 @@ class Feed extends Component {
     api.delete(`/posts/${id}`);
   }
 
-  getImage = image => {
-    const base64 = new Buffer(image).toString("base64");
-    return `data:image/jpeg;base64,${base64}`;
-  }
-
   render() {
     return (
       <section id="post-list">
@@ -50,7 +43,7 @@ class Feed extends Component {
                 </button>
               </header>
 
-              <img src={this.getImage(post.image)} alt="" />
+              <img src={post.file} alt="" />
 
               <footer>
                 <div className="actions">

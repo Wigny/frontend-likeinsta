@@ -37,14 +37,17 @@ class Feed extends Component {
   render() {
     return (
       <form id="new-post" onSubmit={this.handleSubmit}>
-        <input type="file" onChange={this.handleFileChange} />
+        <input
+          type="file"
+          onChange={this.handleFileChange}
+          accept="audio/*|video/*|image/*"
+        />
         <input
           type="text"
           name="author"
           placeholder="Autor do post"
           onChange={this.handleChange}
           value={this.setState.author}
-          accept="audio/*|video/*|image/*"
         />
         <input
           type="text"

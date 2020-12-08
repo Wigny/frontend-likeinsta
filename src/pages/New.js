@@ -40,7 +40,7 @@ class Feed extends Component {
         <input
           type="file"
           onChange={this.handleFileChange}
-          accept="audio/*|video/*|image/*"
+          accept="audio/*,video/*,image/*"
         />
         <input
           type="text"
